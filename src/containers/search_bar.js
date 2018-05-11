@@ -19,6 +19,11 @@ export default class SearchBar extends Component {
         this.setState({ term: event.target.value });
     }
 
+    onFormSubmit(event) {
+        // dont submit the form
+        event.preventDefault();
+    }
+
 
 
     // * rule of thumb:
@@ -26,7 +31,7 @@ export default class SearchBar extends Component {
     // you need to bind it
     render() {
         return (
-            <form className="input-group">
+            <form onSubmit={this.onFormSubmit} className="input-group">
                 <input
                     placeholder="Get a five day forecast in your favorite cities"
                     className="form-control"
